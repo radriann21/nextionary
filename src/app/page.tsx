@@ -1,9 +1,10 @@
 import { MainContainer } from "./components/MainContainer";
+import { HeaderComponent } from "./components/HeaderComponent";
 
 export default function Home() {
   return (
     <MainContainer>
-      <h1>home</h1>
+      <HeaderComponent />
     </MainContainer>
   );
 }
