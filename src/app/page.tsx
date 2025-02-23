@@ -1,9 +1,9 @@
-import { Heading } from "@chakra-ui/react";
+import { MainContainer } from "./components/MainContainer";
 
 export default function Home() {
   return (
-    <div>
-      <Heading fontFamily="global">Nextionary</Heading>
-    </div>
+    <MainContainer>
+      <h1>home</h1>
+    </MainContainer>
   );
 }
