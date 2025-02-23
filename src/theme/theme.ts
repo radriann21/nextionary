@@ -10,7 +10,10 @@ export const system = createSystem(defaultConfig, {
         lightBackground: { value: '#f8f8f8' },
         lightInputBackground: { value: '#fff4f4' },
         mainText: { value: '#0c0c0c' },
-        secondaryText: { value: '#d1d1d1' }
+        mainTextDark: { value: '#ffffff' },
+        secondaryText: { value: '#111111' },
+        secondaryTextDark: { value: '#fff4f4' },
+        darkBackground: { value: '#0f0e0e' },
       }
     }
   }

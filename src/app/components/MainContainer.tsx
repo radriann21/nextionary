@@ -6,6 +6,7 @@ export const  MainContainer = ({children}: {children: React.ReactNode}) => {
       as="main"
       maxW="full"
       minH="100dvh"
+      bg={{ base: 'lightBackground', _dark: 'darkBackground' }}
     >
       <Flex
         as="section"
