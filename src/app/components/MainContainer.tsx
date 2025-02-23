@@ -10,11 +10,12 @@ export const  MainContainer = ({children}: {children: React.ReactNode}) => {
     >
       <Flex
         as="section"
-        maxW="1020px"
+        maxW="720px"
         mx="auto"
         h="full"
-        flexDir="col"
+        flexDir="column"
         py="2rem"
+        px={{ base: "1.5rem", md: "0" }}
       >
         {children}
       </Flex>
