@@ -1,0 +1,26 @@
+type Word = {
+  word: string
+  phonetics: [
+    text: string,
+    audio: string 
+  ],
+  meanings: [
+    {
+      partOfSpeech: string
+      definitions: [
+        {
+          definition: string,
+          example?: string
+        }
+      ],
+      synonyms?: string[],
+      antonyms?: string[]
+    }
+  ],
+  sourceUrl?: string
+}
+
+type ResponseWord = {
+  Word?: Word | null,
+  error?: string | null
+}
