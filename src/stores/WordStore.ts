@@ -32,12 +32,7 @@ export const createWordStore = (initState:WordState = defaultInitialState) => {
       if (res.error) {
         set(() => ({ error: res.error }))
       }
-      set(() => {
-        console.log(res.Word)
-        return {
-          word: res.Word
-        }
-      })
+      set(() => ({ word: res.Word }))
     }
   }))
 }

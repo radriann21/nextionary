@@ -4,7 +4,7 @@ export const searchWord = async (word: string): Promise<ResponseWord> => {
     const res = await fetch(API_URL)
     if (!res.ok) {
       return {
-        error: "Request error. Try again later."
+        error: "Word not found."
       }
     }
     const data = await res.json()
