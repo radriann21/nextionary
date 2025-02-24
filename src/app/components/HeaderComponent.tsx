@@ -1,8 +1,9 @@
 import { Flex, Heading, Icon, Separator, Button } from "@chakra-ui/react"
 import { LuBookOpen } from "react-icons/lu"
 import { ColorModeButton } from "@/components/ui/color-mode";
+import Link from "next/link";
 
-export const HeaderComponent = () => {
+export const HeaderComponent = ({ href, action }: { href: string, action: string }) => {
   return (
     <Flex
       as="main"
@@ -21,15 +22,17 @@ export const HeaderComponent = () => {
         alignItems="center"
         spaceX=".5rem"
       >
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          transition="all 0.2 ease-in" 
-          color={{ base: 'secondaryText', _dark: 'secondaryTextDark'}}
-          _hover={{ textDecoration: "underline"  }}
-        >
-          Saved Words
-        </Button>
+        <Link href={href}>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            transition="all 0.2 ease-in" 
+            color={{ base: 'secondaryText', _dark: 'secondaryTextDark'}}
+            _hover={{ textDecoration: "underline"  }}
+          >
+            {action}
+          </Button>
+        </Link>
         <Separator height="2rem" orientation="vertical" />
         <ColorModeButton />
       </Flex>
