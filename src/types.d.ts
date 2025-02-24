@@ -1,12 +1,14 @@
 type Word = {
-  word: string
-  phonetics: [
-    text: string,
-    audio: string 
+  word: string,
+  phonetics?: [
+    {
+      text: string,
+      audio: string
+    }
   ],
   meanings: [
     {
-      partOfSpeech: string
+      partOfSpeech: string,
       definitions: [
         {
           definition: string,
@@ -17,7 +19,7 @@ type Word = {
       antonyms?: string[]
     }
   ],
-  sourceUrl?: string
+  sourceUrl?: string[]
 }
 
 type ResponseWord = {
