@@ -6,7 +6,7 @@ import { DisplayWord } from "./components/DisplayWord";
 export default function Home() {
   return (
     <MainContainer>
-      <HeaderComponent />
+      <HeaderComponent href="/saved" action="Saved Words" />
       <InputComponent />
       <DisplayWord />
     </MainContainer>

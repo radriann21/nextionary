@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Libre_Baskerville } from "next/font/google"
 import { Provider } from "@/components/ui/provider"
 import { WordStoreProvider } from "@/providers/WordStoreProvider";
+import { SavedWordStoreProvider } from "@/providers/SavedWordProvider"
 
 const libreBaskerville = Libre_Baskerville({
   variable: "--font-libre-baskerville",
@@ -24,10 +25,13 @@ export default function RootLayout({
       <body>
         <Provider>
           <WordStoreProvider>
-            {children}
+            <SavedWordStoreProvider>
+              {children}
+            </SavedWordStoreProvider>
           </WordStoreProvider>
         </Provider>
       </body>
     </html>
   );
 }
+

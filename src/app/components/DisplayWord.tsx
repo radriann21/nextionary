@@ -1,20 +1,34 @@
 "use client";
 import { Heading, Box, Flex, Text, Button, Icon, HStack, Separator, List } from "@chakra-ui/react";
-import { LuPlay } from "react-icons/lu";
+import { Toaster, toaster } from "@/components/ui/toaster";
+import { LuPlay, LuSave } from "react-icons/lu";
 import { useWordStore } from "@/providers/WordStoreProvider";
 import { findAudioSource } from "@/utils/findAudioSource";
+import { useSavedWordStore } from "@/providers/SavedWordProvider";
 
 export const DisplayWord = () => {
   const { word } = useWordStore((state) => state);
+  const { addWord } = useSavedWordStore((state) => state);
 
   const handlePlay = () => {
     const source = findAudioSource(word);
     const audio = new Audio(source);
     audio.play();
-  };
+  }
+
+  const handleSaveWord = () => {
+    addWord(word as Word)
+    toaster.create({
+      title: "Word saved correctly.",
+      type: "success"
+    })
+  }
+
+  if (word === null || word === undefined) return null
 
   return (
     <Flex as="section" mt="3rem" w="full" flexDir="column">
+      <Toaster />
       {/* Word Info and Phonetic */}
       <Flex w="full" alignItems="center" justifyContent="space-between">
         <Box>
@@ -24,6 +38,21 @@ export const DisplayWord = () => {
           <Text color="purple.600" display={word?.phonetics?.[0]?.text !== undefined ? "inline" : "none"}>
             {word?.phonetics?.[0]?.text}
           </Text>
+          <Button 
+            onClick={handleSaveWord}
+            mt=".5rem"
+            p="0"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            variant="plain"
+            size="sm"
+          >
+            <Icon size="md" >
+              <LuSave />
+            </Icon>
+            Save Word
+          </Button>
         </Box>
         <Box>
           <Button
