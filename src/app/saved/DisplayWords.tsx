@@ -20,10 +20,10 @@ export const DisplayWords = () => {
     return (
       <EmptyState.Root>
         <EmptyState.Content>
-          <EmptyState.Title fontFamily="global" fontSize="2rem">
+          <EmptyState.Title fontFamily="global" fontSize="1.5rem" textAlign="center">
             No words saved yet.
           </EmptyState.Title>
-          <EmptyStateDescription>
+          <EmptyStateDescription textAlign="center">
             Save some words to see the definition and uses.
           </EmptyStateDescription>
         </EmptyState.Content>
@@ -93,7 +93,7 @@ export const DisplayWords = () => {
                     {meaning.definitions[0].definition}
                   </Text>
                   {/* Mostrar sinónimos globales */}
-                  <Flex alignItems="center" spaceX=".2rem" mt=".5rem">
+                  <Flex alignItems="center" spaceX=".2rem" mt=".5rem" flexWrap="wrap">
                     <Text>Synonyms: </Text>
                     {(meaning.synonyms?.length || 0) > 0 ? (
                       meaning.synonyms?.map((synonym, synonymIndex) => (
