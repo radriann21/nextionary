@@ -24,9 +24,14 @@ export const createSavedWordsStore = (initState:SavedWordsState = defaultInitial
   return createStore<SavedWordsStore>()(persist((set) => ({
     ...initState,
     addWord: (word) => {
-      set((state) => ({
-        words: [...state.words, word]
-      }))
+      set((state) => {
+        if (state.words.some((w) => w.word === word.word)) {
+          return state
+        }
+        return {
+          words: [...state.words, word]
+        }
+      })
     },
     removeWord: (word) => {
       set((state) => ({

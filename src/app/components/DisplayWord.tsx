@@ -8,7 +8,7 @@ import { useSavedWordStore } from "@/providers/SavedWordProvider";
 
 export const DisplayWord = () => {
   const { word } = useWordStore((state) => state);
-  const { addWord } = useSavedWordStore((state) => state);
+  const { words, addWord } = useSavedWordStore((state) => state);
 
   const handlePlay = () => {
     const source = findAudioSource(word);
@@ -17,6 +17,7 @@ export const DisplayWord = () => {
   }
 
   const handleSaveWord = () => {
+    if (words.some((w) => w.word === word?.word)) return 
     addWord(word as Word)
     toaster.create({
       title: "Word saved correctly.",
