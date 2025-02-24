@@ -19,6 +19,8 @@ type Word = {
       antonyms?: string[]
     }
   ],
+  synonyms?: string[],
+  antonyms?: string[],
   sourceUrl?: string[]
 }
 
